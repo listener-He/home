@@ -48,7 +48,7 @@ function description(element) {
     fetch('https://v1.hitokoto.cn?encode=json&charset=utf-8&c=a&c=b&c=c&c=d&c=e&c=h&c=i&c=j&c=k&c=l').then(function (res) {
         return res.json();
     }).then(function (e) {
-        $(element).html(e.hitokoto + "<br/> -「<strong class='open-view' onclick='to(this)' data-url='https://hitokoto.cn/?uuid=" + e.uuid + "'>" + e.from + (e.from_who == null ? "" : ("·" + e.from_who)) + "</strong>」")
+        $(element).html(e.hitokoto + "<br/> -" + (e.from_who == null ? "" :  + e.from_who ) + "「<strong class='open-view' onclick='to(this)' data-url='https://hitokoto.cn/?uuid=" + e.uuid + "'>" + e.from + "</strong>」")
     }).catch(function (err) {
         console.error(err);
     })
