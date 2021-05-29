@@ -16,6 +16,11 @@
     <script type="text/javascript" src="./assets/js/main.js"></script>
     <link rel="icon" href="https://blog-file.hehouhui.cn/logo_1622012900452.jpeg">
     <link rel="stylesheet" href="assets/css/vno.css">
+    <!-- require APlayer -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script>
+    <!-- require MetingJS -->
+    <script src="https://cdn.jsdelivr.net/npm/meting@2.0.1/dist/Meting.min.js"></script>
 </head>
 
 
@@ -136,8 +141,15 @@
     </div>
 
     <div class="right-music">
-        <iframe id="music" src="https://music.163.com/outchain/player?type=0&id=5131713379&auto=0&height=430"
-                width="100%" height="100" frameborder="no" marginwidth="0" marginheight="0"></iframe>
+        <meting-js
+                server="netease"
+                type="playlist"
+                fixed="true"
+                autoplay="true"
+                id="5131713379">
+        </meting-js>
+<!--        <iframe id="music" src="https://music.163.com/outchain/player?type=0&id=5131713379&auto=0&height=430"-->
+<!--                width="100%" height="100" frameborder="no" marginwidth="0" marginheight="0"></iframe>-->
     </div>
     <div class="remark iUp">
         <p class="power">Powered By
