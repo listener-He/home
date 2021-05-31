@@ -43,12 +43,34 @@ function putCache(key,value){
     sessionStorage.setItem(key,value);
 }
 
+function isNotNull(b) {
+    if (b == null) {
+        return false;
+    }
+    if (b == "null") {
+        return false;
+    }
+    if (b == "undefined") {
+        return false;
+    }
+    if (b.length < 1) {
+        return false;
+    }
+    return true;
+}
+function isNull(b) {
+    return !isNotNull(b);
+}
 function description(element) {
     // 获取一言数据
-    fetch('https://v1.hitokoto.cn?encode=json&charset=utf-8&c=a&c=b&c=c&c=d&c=e&c=h&c=i&c=j&c=k&c=l').then(function (res) {
+    fetch('https://v1.hitokoto.cn?encode=json&charset=utf-8').then(function (res) {
         return res.json();
     }).then(function (e) {
-        $(element).html(e.hitokoto + "<br/> -" + ((e.from_who == null || e.from == e.from_who) ? "" : e.from_who ) + " 「<strong class='open-view' onclick='to(this)' data-url='https://hitokoto.cn/?uuid=" + e.uuid + "'>" + e.from + "</strong>」")
+        if (isNotNull(e.from)) {
+            $(element).html(e.hitokoto + "<br/> -" + ((isNull(e.from_who) || e.from == e.from_who) ? "" : e.from_who ) + " 「<strong class='open-view' onclick='to(this)' data-url='https://hitokoto.cn/?uuid=" + e.uuid + "'>" + e.from + "</strong>」")
+        } else {
+            description(element);
+        }
     }).catch(function (err) {
         console.error(err);
     })
