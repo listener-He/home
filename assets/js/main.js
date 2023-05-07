@@ -63,7 +63,7 @@ function isNull(b) {
 }
 function description(element) {
     // 获取一言数据
-    fetch('https://v1.hitokoto.cn?encode=json&charset=utf-8').then(function (res) {
+    fetch('https://v1.hitokoto.cn?c=d&c=h&c=i&c=j&c=k&encode=json&charset=utf-8').then(function (res) {
         return res.json();
     }).then(function (e) {
         if (isNotNull(e.from)) {
