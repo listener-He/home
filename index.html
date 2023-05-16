@@ -122,7 +122,7 @@
 
                     </div>
                 </div>
-                <div class="bottom-middle" style="margin-top: 50px;">
+                <div class="bottom-middle" style="margin-top: 30px;font-size: 16px;">
                     <p onclick="window.open('http://beian.miit.gov.cn/')">湘ICP备20014902号</p>
                     <span id="elapsed-time">已运行 0 天 0 小时 0 分 0 秒 </span>
                     <script language="javascript">
@@ -153,7 +153,7 @@
         </div>
 
         <div class="right-music">
-            <meting-js server="netease" type="playlist" fixed="true" autoplay="true" id="5131713379">
+            <meting-js server="netease" mini="true" lrc-type=0 type="playlist" fixed="true" autoplay="true" id="5131713379">
             </meting-js>
 
         </div>
@@ -176,14 +176,6 @@
 </body>
 
 <script>
-    $(document).ready(function () {
-        function change() {
-            description('#description');
-            background('#panel');
-        }
-        change();
-    })
-
     // 百度站点统计
     var _hmt = _hmt || [];
     (function () {

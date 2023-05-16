@@ -76,29 +76,32 @@ document.addEventListener('DOMContentLoaded', function () {
 var btnMobileMenu = document.querySelector('.btn-mobile-menu__icon');
 var navigationWrapper = document.querySelector('.navigation-wrapper');
 
-btnMobileMenu.addEventListener('click', function () {
-	if (navigationWrapper.style.display == "block") {
-		navigationWrapper.addEventListener('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function () {
-			navigationWrapper.classList.toggle('visible');
+if (btnMobileMenu != null) {
+	btnMobileMenu.addEventListener('click', function () {
+		if (navigationWrapper.style.display == "block") {
+			navigationWrapper.addEventListener('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function () {
+				navigationWrapper.classList.toggle('visible');
+				navigationWrapper.classList.toggle('animated');
+				navigationWrapper.classList.toggle('bounceOutUp');
+				navigationWrapper.removeEventListener('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', arguments.callee);
+			});
+			navigationWrapper.classList.toggle('animated');
+			navigationWrapper.classList.toggle('bounceInDown');
 			navigationWrapper.classList.toggle('animated');
 			navigationWrapper.classList.toggle('bounceOutUp');
-			navigationWrapper.removeEventListener('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', arguments.callee);
-		});
-		navigationWrapper.classList.toggle('animated');
-		navigationWrapper.classList.toggle('bounceInDown');
-		navigationWrapper.classList.toggle('animated');
-		navigationWrapper.classList.toggle('bounceOutUp');
-	} else {
-		navigationWrapper.classList.toggle('visible');
-		navigationWrapper.classList.toggle('animated');
-		navigationWrapper.classList.toggle('bounceInDown');
-	}
-	btnMobileMenu.classList.toggle('social');
-	btnMobileMenu.classList.toggle('iconfont');
-	btnMobileMenu.classList.toggle('icon-list');
-	btnMobileMenu.classList.toggle('social');
-	btnMobileMenu.classList.toggle('iconfont');
-	btnMobileMenu.classList.toggle('icon-angleup');
-	btnMobileMenu.classList.toggle('animated');
-	btnMobileMenu.classList.toggle('fadeIn');
-});
+		} else {
+			navigationWrapper.classList.toggle('visible');
+			navigationWrapper.classList.toggle('animated');
+			navigationWrapper.classList.toggle('bounceInDown');
+		}
+		btnMobileMenu.classList.toggle('social');
+		btnMobileMenu.classList.toggle('iconfont');
+		btnMobileMenu.classList.toggle('icon-list');
+		btnMobileMenu.classList.toggle('social');
+		btnMobileMenu.classList.toggle('iconfont');
+		btnMobileMenu.classList.toggle('icon-angleup');
+		btnMobileMenu.classList.toggle('animated');
+		btnMobileMenu.classList.toggle('fadeIn');
+	});
+}
+
